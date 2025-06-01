@@ -641,6 +641,21 @@ body {
     font-size: 1.1rem;
 }
 
+/* LinkedIn image styling */
+.contact-item a img {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+}
+
+.contact-item a img:hover {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+}
+
 /* Footer */
 footer {
     background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
@@ -928,7 +943,7 @@ html {
 <!-- Team Section -->
 <section id="team" class="content-section">
     <p class="section-subtitle">Our Team</p>
-    <h2 class="section-title">Meet the Security Experts</h2>
+    <h2 class="section-title">Meet With Our Amazing Team</h2>
     <div class="description">
         Our team of computer engineers are dedicated to revolutionizing digital security through innovative e-signature technology.
     </div>
@@ -945,7 +960,8 @@ html {
         </div>
         <div class="team-member">
             <img src="media/onur_taskin.jpeg" alt="Onur Taşkın" class="team-photo">
-            <h4>Onur Taşkın</h4>
+            <h4>Onur</h4>
+            <h4>Taşkın</h4>
             <p>Developer</p>
         </div>
         <div class="team-member">
@@ -999,7 +1015,7 @@ html {
         <div class="contact-item">
             <h4>🔗 LinkedIn</h4>
             <a href="https://linkedin.com/company/esbsl">
-                <p>linkedin.com/company/esbsl</p>
+               <img src="media/linkedin.png" alt="LinkedIn">
             </a>
             
         </div>
