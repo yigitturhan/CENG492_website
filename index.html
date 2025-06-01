@@ -571,7 +571,6 @@ body {
     height: auto;
     margin: 0 auto 20px;
     display: block;
-    filter: drop-shadow(0 4px 15px rgba(0,0,0,0.1));
     transition: all 0.3s ease;
 }
 
@@ -648,17 +647,26 @@ body {
     font-size: 1.1rem;
 }
 
-/* LinkedIn styling - image not clickable, only text */
+/* Logo styling - different sizes for LinkedIn and METU */
 .contact-item img {
-    width: 60px;
-    height: 60px;
     object-fit: contain;
     border-radius: 8px;
-    filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
-    margin-bottom: 1rem;
+    margin: 0 auto 1.5rem auto;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    transition: all 0.3s ease;
+}
+
+/* LinkedIn logo - smaller size */
+/* LinkedIn logo */
+.contact-item img[src*="linkedin"] {
+    width: 120px;
+    height: 120px;
+}
+
+/* METU logo - made larger and more prominent */
+.contact-item img[src*="metu"] {
+    width: 200px;
+    height: 120px;
 }
 
 .contact-item a {
@@ -955,10 +963,15 @@ footer {
         font-size: 1rem;
     }
     
-    /* LinkedIn image responsive - not clickable */
-    .contact-item img {
+    /* Logo responsive sizes */
+    .contact-item img[src*="linkedin"] {
         width: 50px;
         height: 50px;
+    }
+    
+    .contact-item img[src*="metu"] {
+        width: 100px;
+        height: 100px;
     }
     
     footer {
@@ -1033,9 +1046,14 @@ footer {
         width: 150px;
     }
     
-    .contact-item img {
+    .contact-item img[src*="linkedin"] {
         width: 40px;
         height: 40px;
+    }
+    
+    .contact-item img[src*="metu"] {
+        width: 80px;
+        height: 80px;
     }
 }
 
@@ -1300,7 +1318,7 @@ html {
 <!-- Team Section -->
 <section id="team" class="content-section">
     <p class="section-subtitle">Our Team</p>
-    <h2 class="section-title">Meet the Security Experts</h2>
+    <h2 class="section-title">Meet Our Amazing Team</h2>
     <div class="description">
         Our team of computer engineers are dedicated to revolutionizing digital security through innovative e-signature technology.
     </div>
@@ -1370,15 +1388,14 @@ html {
     </div>
     <div class="contact-info">
         <div class="contact-item">
-            <img src="media/linkedin.png" alt="LinkedIn">
-            
+            <img src="media/linkedin.png" alt="LinkedIn">           
             <a href="https://linkedin.com/company/esbsl">
-               <h4>linkedin.com/company/esbsl</h4>
+                <p>linkedin.com/company/esbsl<p>
             </a>
             
         </div>
         <div class="contact-item">
-            <h4>🏢 Organization</h4>
+            <img src="media/metu.jpg" alt="METU Logo">
             <p>Middle East Technical University</p>
         </div>
     </div>
