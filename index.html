@@ -67,6 +67,13 @@ body {
     color: #fbbf24;
     white-space: nowrap;
     letter-spacing: -0.05em;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.nav-logo:hover {
+    color: #f59e0b;
+    transform: scale(1.05);
 }
 
 .nav-menu {
@@ -641,19 +648,41 @@ body {
     font-size: 1.1rem;
 }
 
-/* LinkedIn image styling */
-.contact-item a img {
+/* LinkedIn styling - image not clickable, only text */
+.contact-item img {
     width: 60px;
     height: 60px;
     object-fit: contain;
-    transition: all 0.3s ease;
     border-radius: 8px;
     filter: drop-shadow(0 2px 8px rgba(0,0,0,0.1));
+    margin-bottom: 1rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
-.contact-item a img:hover {
-    transform: scale(1.1);
-    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.2));
+.contact-item a {
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+.contact-item a:hover {
+    transform: scale(1.05);
+}
+
+.contact-item a p {
+    color: #3b82f6;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-item a:hover p {
+    color: #1d4ed8;
+    text-decoration: underline;
 }
 
 /* Footer */
@@ -926,8 +955,8 @@ footer {
         font-size: 1rem;
     }
     
-    /* LinkedIn image responsive */
-    .contact-item a img {
+    /* LinkedIn image responsive - not clickable */
+    .contact-item img {
         width: 50px;
         height: 50px;
     }
@@ -1004,7 +1033,7 @@ footer {
         width: 150px;
     }
     
-    .contact-item a img {
+    .contact-item img {
         width: 40px;
         height: 40px;
     }
@@ -1021,7 +1050,7 @@ html {
 <!-- Top Navigation -->
 <nav class="top-nav">
 <div class="nav-container">
-    <div class="nav-logo">E-SBSL</div>
+    <a href="#home" class="nav-logo">E-SBSL</a>
     <ul class="nav-menu">
         <li><a href="#home" class="nav-link">Home</a></li>
         <li><a href="#about" class="nav-link">About</a></li>
@@ -1271,14 +1300,14 @@ html {
 <!-- Team Section -->
 <section id="team" class="content-section">
     <p class="section-subtitle">Our Team</p>
-    <h2 class="section-title">Meet With Our Amazing Team/h2>
+    <h2 class="section-title">Meet the Security Experts</h2>
     <div class="description">
         Our team of computer engineers are dedicated to revolutionizing digital security through innovative e-signature technology.
     </div>
     <div class="team-grid">
         <div class="team-member">
-            <img src="media/muhsin_zahid_sardogan.png" alt="Muhsin Zahid Sardoğan" class="team-photo">
-            <h4>Muhsin Zahid Sardoğan</h4>
+            <img src="media/salim_eren_yilmaz.png" alt="Salim Eren Yılmaz" class="team-photo">
+            <h4>Salim Eren Yılmaz</h4>
             <p>Developer</p>
         </div>
         <div class="team-member">
@@ -1298,8 +1327,8 @@ html {
             <p>Developer</p>
         </div>
         <div class="team-member">
-            <img src="media/salim_eren_yilmaz.png" alt="Salim Eren Yılmaz" class="team-photo">
-            <h4>Salim Eren Yılmaz</h4>
+            <img src="media/muhsin_zahid_sardogan.png" alt="Muhsin Zahid Sardoğan" class="team-photo">
+            <h4>Muhsin Zahid Sardoğan</h4>
             <p>Developer</p>
         </div>
     </div>
@@ -1341,9 +1370,10 @@ html {
     </div>
     <div class="contact-info">
         <div class="contact-item">
-            <h4>🔗 LinkedIn</h4>
+            <img src="media/linkedin.png" alt="LinkedIn">
+            
             <a href="https://linkedin.com/company/esbsl">
-               <img src="media/linkedin.png" alt="LinkedIn">
+               <h4>linkedin.com/company/esbsl</h4>
             </a>
             
         </div>
@@ -1363,12 +1393,12 @@ html {
 <script>
 // Fixed navigation with proper dropdown handling and smooth scrolling for all links
 document.addEventListener('DOMContentLoaded', function() {
-    // Get all navigation links (both main nav and dropdown) AND the CTA button
-    const allLinks = document.querySelectorAll('.nav-link, .dropdown-link, .cta-button');
+    // Get all navigation links (both main nav and dropdown) AND the CTA button AND the logo
+    const allLinks = document.querySelectorAll('.nav-link, .dropdown-link, .cta-button, .nav-logo');
     const sections = document.querySelectorAll('section, div[id]');
     const featureCards = document.querySelectorAll('.feature-card');
 
-    // Handle navigation clicks for all links including CTA button
+    // Handle navigation clicks for all links including CTA button and logo
     allLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
@@ -1388,7 +1418,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         block: 'start'
                     });
                     
-                    // Update active states for nav links (not CTA button)
+                    // Update active states for nav links (not CTA button or logo)
                     if (this.classList.contains('nav-link') || this.classList.contains('dropdown-link')) {
                         allLinks.forEach(l => {
                             if (l.classList.contains('nav-link') || l.classList.contains('dropdown-link')) {
@@ -1396,6 +1426,19 @@ document.addEventListener('DOMContentLoaded', function() {
                             }
                         });
                         this.classList.add('active');
+                    }
+                    
+                    // If logo was clicked, activate the Home nav link
+                    if (this.classList.contains('nav-logo')) {
+                        allLinks.forEach(l => {
+                            if (l.classList.contains('nav-link') || l.classList.contains('dropdown-link')) {
+                                l.classList.remove('active');
+                            }
+                        });
+                        const homeLink = document.querySelector('a[href="#home"].nav-link');
+                        if (homeLink) {
+                            homeLink.classList.add('active');
+                        }
                     }
                 }
             }
