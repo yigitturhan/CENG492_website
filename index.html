@@ -1161,7 +1161,7 @@ html {
         </div>
         <div class="feature-card" data-target="#office-signing">
             <h3>📊 OFFICE DOCUMENTS SIGNING</h3>
-            <p>Microsoft Office documents signing that fits ETSI-XADES standards. Can be verified with MS Office</p>
+            <p>Microsoft Office documents signing that fits ECMA-376 standards. Can be verified with MS Office</p>
         </div>
         <div class="feature-card" data-target="#pgp">
             <h3>🔑 PGP MANAGEMENT</h3>
@@ -1177,7 +1177,7 @@ html {
         </div>
         <div class="feature-card" data-target="#https">
             <h3>🌐 HTTP/S AUTHORIZATION</h3>
-            <p>HTTP/S header based authorization mechanism for restricted URLs and APIs</p>
+            <p>HTTP/S header based authorization mechanism for restricted URLs</p>
         </div>
         <div class="feature-card" data-target="#credentials">
             <h3>🗄️ CREDENTIAL VAULT</h3>
@@ -1197,7 +1197,7 @@ html {
                 Your browser does not support the video tag.
             </video>
         </div>
-                <p>Our file signing feature supports all major file formats and provides cryptographic proof of origin. The signature is embedded directly into the file metadata, making verification seamless across different platforms.</p>
+        <p>Our file signing feature supports all file formats and provides cryptographic proof of origin. It generates a signature file that will be used for verification.</p>
 
     </div>
 </div>
@@ -1212,7 +1212,7 @@ html {
                 Your browser does not support the video tag.
             </video>
         </div>
-                <p>Features end-to-end encryption with perfect forward secrecy. Files are encrypted using hybrid cryptography - symmetric encryption for the data and asymmetric encryption for the keys.</p>
+        <p>Features end-to-end encryption with perfect forward secrecy. Our File Encryption feature is able to encrypt/decrypt all kinds of files.</p>
 
     </div>
 </div>
@@ -1227,22 +1227,22 @@ html {
                 Your browser does not support the video tag.
             </video>
         </div>
-                <p>Supports advanced electronic signatures (AdES) with long-term validation. Timestamps and certificate chains are embedded to ensure signatures remain valid over time, even if certificates expire.</p>
+        <p>DF signing feature complies with European digital signature standards for PDF documents, which are developed by the European Telecommunications Standards Institute (ETSI).</p>
 
     </div>
 </div>
 
 <div id="office-signing" class="feature-detail">
     <div class="content-wrapper">
-        <h3>Office Document Signing (ETSI-XADES)</h3>
-        <p>Sign Microsoft Office documents (Word, Excel, PowerPoint) with ETSI-XADES standards. Signatures are recognized and verifiable directly within Microsoft Office applications.</p>
+        <h3>Office Document Signing (ECMA-376)</h3>
+        <p>Sign Microsoft Office documents (Office Open XML file formats such as Word, Excel, PowerPoint) with ECMA-376 standards. Signatures are recognized and verifiable directly within Microsoft Office applications.</p>
         <div class="feature-visual">
             <video controls width="100%" style="border-radius: 12px;">
                 <source src="media/ooxml.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-        <p>Full integration with Microsoft Office ribbon interface. Supports batch signing for multiple documents and maintains formatting integrity during the signing process.</p>
+        <p>The Office Document Signing feature generates an Office Open XML digital signature and embeds it into the document. Signature details—such as the certificate chain, signing reason, and issuer—can be viewed in Microsoft Office.</p>
     </div>
 </div>
 
@@ -1256,7 +1256,7 @@ html {
                 Your browser does not support the video tag.
             </video>
         </div>
-                <p>Compatible with standard PGP implementations like GnuPG. Your e-signature device acts as a hardware security module, ensuring private keys never leave the device while enabling full PGP functionality.</p>
+        <p>Compatible with standard PGP implementations like GnuPG. You are able to publish your key pair to our server with encrypting your PGP private key with your e-signature device.</p>
 
     </div>
 </div>
@@ -1264,14 +1264,14 @@ html {
 <div id="gmail" class="feature-detail">
     <div class="content-wrapper">
         <h3>Secure Gmail Integration</h3>
-        <p>All your Gmail communications are automatically encrypted and signed using your e-signature device or PGP keys. Transparent security without changing your email workflow.</p>
+        <p>All your Gmail communications are encrypted and signed using your e-signature device or PGP keys. Transparent security without changing your email workflow.</p>
         <div class="feature-visual">
             <video controls width="100%" style="border-radius: 12px;">
                 <source src="media/gmail.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
-                <p>Browser extension seamlessly integrates with Gmail interface. Automatic key exchange with recipients, encrypted draft saving, and visual indicators for message security status.</p>
+        <p>The browser extension seamlessly integrates with the Gmail interface and supports both email and attachment signing, as well as signing and encryption.</p>
 
     </div>
 </div>
@@ -1286,6 +1286,7 @@ html {
                 Your browser does not support the video tag.
             </video>
         </div>
+        <p>Can be integrated into any website within minutes, providing a high level of security through e-signature devices, timestamps, and request hashes.</p>
     </div>
 </div>
 
@@ -1299,7 +1300,7 @@ html {
                 Your browser does not support the video tag.
             </video>
         </div>
-                <p>Implements custom HTTP authentication scheme with replay protection. Perfect for API access, administrative interfaces, and any web resource requiring strong authentication.</p>
+        <p>Implements a custom HTTP/S authorization scheme, ideal for API access, administrative interfaces, and any web resource requiring strong authorization and isolation.</p>
 
     </div>
 </div>
@@ -1307,11 +1308,11 @@ html {
 <div id="credentials" class="feature-detail">
     <div class="content-wrapper">
         <h3>Credential Management</h3>
-        <p>Secure vault for storing and managing your credentials, protected by your e-signature device. Access your passwords, API keys, and certificates from any computer with your device.</p>
+        <p>Secure vault for storing and managing your credentials, protected by your e-signature device. Access your credentials for any website from any computer using your e-signature device.</p>
         <div class="feature-visual">
             [Credential Vault Interface]
         </div>
-        <p>Encrypted credential storage with automatic form filling. Supports secure sharing of credentials within teams, audit logging, and automatic credential rotation for supported services.</p>
+        <p>Encrypted credential storage with automatic form filling. Saves your credentials encrypted on our server, allowing you to access them anytime through our extension and e-signature device.</p>
     </div>
 </div>
 
@@ -1356,12 +1357,12 @@ html {
             <div class="supervisor-member">
                 <img src="media/onur-tolga-sehitoglu.webp" alt="Supervisor 1" class="team-photo">
                 <h4>Dr. Onur Tolga Şehitoğlu</h4>
-                <p>Project Supervisor</p>
+                <p>Supervisor</p>
             </div>
             <div class="supervisor-member">
                 <img src="media/attila_ozgit.JPG" alt="Supervisor 2" class="team-photo">
                 <h4>Dr. Attila Özgit</h4>
-                <p>Advisor</p>
+                <p>Advisor, Project Integration</p>
             </div>
         </div>
     </div>
