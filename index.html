@@ -1500,33 +1500,64 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Update active navigation on scroll
-    function updateActiveNav() {
-        let current = '';
-        sections.forEach(section => {
-            const sectionTop = section.offsetTop - 150;
-            const sectionHeight = section.clientHeight;
-            
-            if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
-                current = section.getAttribute('id');
+    // Update active navigation using Intersection Observer
+    function updateActiveNav(sectionId) {
+        console.log('Updating active nav for section:', sectionId);
+        
+        // Map feature detail sections to main "features" nav item
+        const featureDetailSections = [
+            'file-signing', 'file-encryption', 'pdf-signing', 'office-signing', 
+            'pgp', 'gmail', 'auth-api', 'https', 'credentials'
+        ];
+        
+        // If it's a feature detail section, highlight the main "Features" nav instead
+        const targetSection = featureDetailSections.includes(sectionId) ? 'features' : sectionId;
+        
+        let foundMatch = false;
+        allLinks.forEach(link => {
+            if (link.classList.contains('nav-link') || link.classList.contains('dropdown-link')) {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + targetSection) {
+                    link.classList.add('active');
+                    foundMatch = true;
+                    console.log('Found matching link for:', targetSection, link);
+                }
             }
         });
-
-        if (current) {
-            allLinks.forEach(link => {
-                if (link.classList.contains('nav-link') || link.classList.contains('dropdown-link')) {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === '#' + current) {
-                        link.classList.add('active');
-                    }
-                }
-            });
+        
+        if (!foundMatch) {
+            console.log('No matching navigation link found for section:', sectionId);
         }
     }
 
-    // Listen for scroll events
-    window.addEventListener('scroll', updateActiveNav);
-    updateActiveNav(); // Initial call
+    // Set up Intersection Observer for section detection
+    const observerOptions = {
+        root: null, // Use viewport as root
+        rootMargin: '-10% 0px -60% 0px', // Larger active zone: 30% of viewport
+        threshold: [0.1, 0.5] // Multiple thresholds for better detection
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.getAttribute('id');
+                if (sectionId) {
+                    updateActiveNav(sectionId);
+                }
+            }
+        });
+    }, observerOptions);
+
+    // Observe all sections
+    sections.forEach(section => {
+        if (section.getAttribute('id')) {
+            sectionObserver.observe(section);
+        }
+    });
+
+    // Initial call to set home as active
+    updateActiveNav('home');
+
 });
 </script>
 </body>
